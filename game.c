@@ -1,11 +1,14 @@
 #include "game.h"
 #include "raylib.h"
 #include "player.h"
+#include "wall.h"
 
 Player* player;
+Wall* wall;
 
 void Start() {
     player = CreatePlayer(0, 0, 32);
+    wall = CreateWall(256, 128, 96, 32);
 }
 
 void Update() {
@@ -29,8 +32,10 @@ void Update() {
 void Draw() {
     ClearBackground(BLACK);
     DrawPlayer(player);
+    DrawWall(wall);
 }
 
 void End() {
     DestroyPlayer(player);
+    DestroyWall(wall);
 }
