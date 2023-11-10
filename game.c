@@ -27,6 +27,7 @@ void Update() {
 }
 
 void Draw() {
+    ClearBackground(BLACK);
     DrawPlayer(player);
 }
 

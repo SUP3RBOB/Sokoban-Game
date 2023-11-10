@@ -9,7 +9,6 @@ int main(void) {
 
     while (!WindowShouldClose()) {
         Update();
-        ClearBackground(BLACK);
         BeginDrawing();
         Draw();
         EndDrawing();
