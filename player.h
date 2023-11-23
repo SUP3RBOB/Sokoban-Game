@@ -1,12 +1,16 @@
 #pragma once
+#include <stdbool.h>
+#include "raylib.h"
 
 typedef struct {
-    int x;
-    int y;
-    int speed;
+    float x;
+    float y;
+    float speed;
+    Rectangle sprite;
 } Player;
 
-Player* CreatePlayer(int x, int y, int speed);
-void MovePlayer(Player* player, int x, int y);
+Player* CreatePlayer(float x, float y, float speed);
+void SetPlayerX(Player* player, float x);
+void SetPlayerY(Player* player, float y);
 void DrawPlayer(Player* player);
 void DestroyPlayer(Player* player);

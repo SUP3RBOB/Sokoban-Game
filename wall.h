@@ -1,11 +1,13 @@
 #pragma once
+#include <stdbool.h>
+#include "raylib.h"
 
 typedef struct wall {
     float x;
     float y;
     float width;
     float height;
-    void* sprite;
+    Rectangle sprite;
     struct wall* next;
 } Wall;
 
@@ -19,6 +21,9 @@ Wall* CreateWall(float x, float y, float width, float height);
 void DrawWall(Wall* wall);
 void DestroyWall(Wall* wall);
 
-Walls* CreateWallList();
+bool PointOnWall(Walls* list, float x, float y);
+
+Walls* CreateWalls();
 void AddWall(Walls* walls, Wall* wall);
+void DrawWalls(Walls* walls);
 void DestroyWalls(Walls* walls);

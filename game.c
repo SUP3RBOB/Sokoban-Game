@@ -1,41 +1,43 @@
 #include "game.h"
+#include <stdlib.h>
 #include "raylib.h"
-#include "player.h"
-#include "wall.h"
+#include "objects.h"
 
-Player* player;
-Wall* wall;
+Objects* objects;
 
 void Start() {
-    player = CreatePlayer(0, 0, 32);
-    wall = CreateWall(256, 128, 96, 32);
+    objects = malloc(sizeof(Objects));
+    objects->player = CreatePlayer(32, 32, 32);
+    objects->walls = CreateWalls();
+    objects->boxes = CreateBoxList();
+
+    AddWall(objects->walls, CreateWall(64, 64, 128, 32));
+    AddBox(objects->boxes, CreateBox(128, 128));
 }
 
 void Update() {
     if (IsKeyPressed(KEY_RIGHT)) {
-        MovePlayer(player, 1, 0);
+        MovePlayer(objects, 1, 0);
     }
 
     if (IsKeyPressed(KEY_LEFT)) {
-        MovePlayer(player, -1, 0);
+        MovePlayer(objects, -1, 0);
     }
 
     if (IsKeyPressed(KEY_DOWN)) {
-        MovePlayer(player, 0, 1);
+        MovePlayer(objects, 0, 1);
     }
 
     if (IsKeyPressed(KEY_UP)) {
-        MovePlayer(player, 0, -1);
+        MovePlayer(objects, 0, -1);
     }
 }
 
 void Draw() {
     ClearBackground(BLACK);
-    DrawPlayer(player);
-    DrawWall(wall);
+    DrawObjects(objects);
 }
 
 void End() {
-    DestroyPlayer(player);
-    DestroyWall(wall);
+    DestroyObjects(objects);
 }

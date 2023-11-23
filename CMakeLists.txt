@@ -31,7 +31,11 @@ add_executable(${PROJECT_NAME} main.c
         player.c
         player.h
         wall.c
-        wall.h)
+        wall.h
+        box.c
+        box.h
+        objects.c
+        objects.h)
 #set(raylib_VERBOSE 1)
 target_link_libraries(${PROJECT_NAME} raylib)
 
