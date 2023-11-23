@@ -6,6 +6,8 @@ Box* CreateBox(float x, float y) {
     Box* box = malloc(sizeof(Box));
     box->x = x;
     box->y = y;
+    box->xStart = x;
+    box->yStart = y;
     box->next = NULL;
 
     Rectangle r;
@@ -22,19 +24,25 @@ bool PointOnBox(Boxes* boxes, float x, float y, Box** outBox) {
     Box* current = boxes->first;
     while (current != NULL) {
         if (CheckCollisionPointRec(point, current->sprite)) {
-            *outBox = current;
+            if (outBox != NULL) {
+                *outBox = current;
+            }
             return true;
         }
         current = current->next;
     }
 
-    *outBox = NULL;
     return false;
 }
 
 void MoveBox(Box* box, float x, float y) {
     box->x += x;
     box->y += y;
+}
+
+void ResetBox(Box* box) {
+    box->x = box->xStart;
+    box->y = box->yStart;
 }
 
 void DrawBox(Box* box) {

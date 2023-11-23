@@ -5,8 +5,6 @@
 typedef struct wall {
     float x;
     float y;
-    float width;
-    float height;
     Rectangle sprite;
     struct wall* next;
 } Wall;

@@ -1,6 +1,5 @@
 #include "game.h"
 #include <stdlib.h>
-#include "raylib.h"
 #include "objects.h"
 
 Objects* objects;
@@ -10,10 +9,9 @@ void Start() {
     objects->player = CreatePlayer(0, 0);
     objects->walls = CreateWallList();
     objects->boxes = CreateBoxList();
+    objects->goals = CreateGoalList();
 
-    AddWall(objects->walls, CreateWall(64, 64, 128, 32));
-    AddBox(objects->boxes, CreateBox(128, 128));
-    AddBox(objects->boxes, CreateBox(256, 256));
+    LevelOne(objects);
 }
 
 void Update() {
@@ -31,6 +29,16 @@ void Update() {
 
     if (IsKeyPressed(KEY_UP)) {
         MovePlayer(objects, 0, -1);
+    }
+
+    if (IsKeyPressed(KEY_SPACE)) {
+        ResetObjects(objects);
+    }
+
+    if (LevelCompleted(objects)) {
+        WaitTime(1);
+        End();
+        CloseWindow();
     }
 }
 

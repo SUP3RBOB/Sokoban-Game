@@ -5,8 +5,6 @@ Wall* CreateWall(float x, float y, float width, float height) {
     Wall* wall = malloc(sizeof(Wall));
     wall->x = x;
     wall->y = y;
-    wall->width = width;
-    wall->height = height;
     wall->next = NULL;
 
     Rectangle r;

@@ -6,6 +6,8 @@ Player* CreatePlayer(float x, float y) {
     Player* player = malloc(sizeof(Player));
     player->x = x;
     player->y = y;
+    player->xStart = x;
+    player->yStart = y;
 
     Rectangle r;
     r.x = x;
@@ -22,6 +24,15 @@ Player* CreatePlayer(float x, float y) {
 void SetPlayerPosition(Player* player, float x, float y) {
     player->x = x;
     player->y = y;
+}
+
+void SetPlayerStartPosition(Player* player, float x, float y) {
+    player->xStart = x;
+    player->yStart = y;
+}
+
+void ResetPlayerPosition(Player* player) {
+    SetPlayerPosition(player, player->xStart, player->yStart);
 }
 
 void DrawPlayer(Player* player) {
