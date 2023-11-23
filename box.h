@@ -18,7 +18,7 @@ typedef struct {
 Box* CreateBox(float x, float y);
 
 bool PointOnBox(Boxes* boxes, float x, float y, Box** outBox);
-bool MoveBox(Box* box, float x, float y);
+void MoveBox(Box* box, float x, float y);
 void DrawBox(Box* box);
 void DestroyBox(Box* box);
 

@@ -9,8 +9,7 @@ typedef struct {
     Rectangle sprite;
 } Player;
 
-Player* CreatePlayer(float x, float y, float speed);
-void SetPlayerX(Player* player, float x);
-void SetPlayerY(Player* player, float y);
+Player* CreatePlayer(float x, float y);
+void SetPlayerPosition(Player* player, float x, float y);
 void DrawPlayer(Player* player);
 void DestroyPlayer(Player* player);

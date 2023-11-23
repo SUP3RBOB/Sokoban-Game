@@ -1,4 +1,5 @@
 #include "box.h"
+#include <stdio.h>
 #include <stdlib.h>
 
 Box* CreateBox(float x, float y) {
@@ -31,7 +32,7 @@ bool PointOnBox(Boxes* boxes, float x, float y, Box** outBox) {
     return false;
 }
 
-bool MoveBox(Box* box, float x, float y) {
+void MoveBox(Box* box, float x, float y) {
     box->x += x;
     box->y += y;
 }

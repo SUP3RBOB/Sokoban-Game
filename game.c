@@ -7,12 +7,13 @@ Objects* objects;
 
 void Start() {
     objects = malloc(sizeof(Objects));
-    objects->player = CreatePlayer(32, 32, 32);
-    objects->walls = CreateWalls();
+    objects->player = CreatePlayer(0, 0);
+    objects->walls = CreateWallList();
     objects->boxes = CreateBoxList();
 
     AddWall(objects->walls, CreateWall(64, 64, 128, 32));
     AddBox(objects->boxes, CreateBox(128, 128));
+    AddBox(objects->boxes, CreateBox(256, 256));
 }
 
 void Update() {

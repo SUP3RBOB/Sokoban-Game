@@ -1,11 +1,11 @@
 #include "player.h"
+#include <stdio.h>
 #include <stdlib.h>
 
-Player* CreatePlayer(float x, float y, float speed) {
+Player* CreatePlayer(float x, float y) {
     Player* player = malloc(sizeof(Player));
     player->x = x;
     player->y = y;
-    player->speed = speed;
 
     Rectangle r;
     r.x = x;
@@ -14,14 +14,13 @@ Player* CreatePlayer(float x, float y, float speed) {
     r.height = 32;
     player->sprite = r;
 
+    player->speed = r.width;
+
     return player;
 }
 
-void SetPlayerX(Player* player, float x) {
+void SetPlayerPosition(Player* player, float x, float y) {
     player->x = x;
-}
-
-void SetPlayerY(Player* player, float y) {
     player->y = y;
 }
 

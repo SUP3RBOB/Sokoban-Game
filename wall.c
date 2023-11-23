@@ -39,7 +39,7 @@ bool PointOnWall(Walls* walls, float x, float y) {
     return false;
 }
 
-Walls* CreateWalls() {
+Walls* CreateWallList() {
     Walls* walls = malloc(sizeof(Walls));
     walls->first = NULL;
     walls->last = NULL;
