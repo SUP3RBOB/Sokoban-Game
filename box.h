@@ -27,5 +27,6 @@ void DestroyBox(Box* box);
 
 Boxes* CreateBoxList();
 void AddBox(Boxes* boxes, Box* box);
+void ClearBoxes(Boxes* boxes);
 void DrawBoxes(Boxes* boxes);
 void DestroyBoxes(Boxes* boxes);

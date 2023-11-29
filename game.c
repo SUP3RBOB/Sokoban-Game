@@ -1,8 +1,10 @@
 #include "game.h"
 #include <stdlib.h>
+#include <stdio.h>
 #include "objects.h"
 
 Objects* objects;
+int level = 1;
 
 void Start() {
     objects = malloc(sizeof(Objects));
@@ -36,9 +38,9 @@ void Update() {
     }
 
     if (LevelCompleted(objects)) {
-        WaitTime(1);
-        End();
-        CloseWindow();
+        level++;
+        DestroyLevel(objects);
+        LoadLevel(objects, level);
     }
 }
 

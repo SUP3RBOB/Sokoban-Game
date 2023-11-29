@@ -20,5 +20,6 @@ void DestroyGoal(Goal* goal);
 
 Goals* CreateGoalList();
 void AddGoal(Goals* goals, Goal* goal);
+void ClearGoals(Goals* goals);
 void DrawGoals(Goals* goals);
 void DestroyGoals(Goals* goals);

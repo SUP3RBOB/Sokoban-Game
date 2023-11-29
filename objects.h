@@ -18,4 +18,7 @@ void DestroyObjects(Objects* objects);
 
 bool LevelCompleted(Objects* objects);
 
+void LoadLevel(Objects* _objects, int _level);
 void LevelOne(Objects* objects);
+void LevelTwo(Objects* objects);
+void DestroyLevel(Objects* objects);

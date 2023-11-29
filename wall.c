@@ -58,6 +58,19 @@ void AddWall(Walls* walls, Wall* wall) {
     walls->count++;
 }
 
+void ClearWalls(Walls* walls) {
+    Wall* current = walls->first;
+    while (current != NULL) {
+        Wall* temp = current;
+        current = current->next;
+        DestroyWall(temp);
+    }
+
+    walls->first = NULL;
+    walls->last = NULL;
+    walls->count = 0;
+}
+
 void DrawWalls(Walls* walls) {
     Wall* current = walls->first;
     while (current != NULL) {

@@ -23,5 +23,6 @@ bool PointOnWall(Walls* list, float x, float y);
 
 Walls* CreateWallList();
 void AddWall(Walls* walls, Wall* wall);
+void ClearWalls(Walls* walls);
 void DrawWalls(Walls* walls);
 void DestroyWalls(Walls* walls);

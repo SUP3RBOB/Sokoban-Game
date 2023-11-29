@@ -76,6 +76,19 @@ void AddBox(Boxes* boxes, Box* box) {
     boxes->count++;
 }
 
+void ClearBoxes(Boxes* boxes) {
+    Box* current = boxes->first;
+    while (current != NULL) {
+        Box* temp = current;
+        current = current->next;
+        DestroyBox(temp);
+    }
+
+    boxes->first = NULL;
+    boxes->last = NULL;
+    boxes->count = 0;
+}
+
 void DrawBoxes(Boxes* boxes) {
     Box* current = boxes->first;
     while (current != NULL) {

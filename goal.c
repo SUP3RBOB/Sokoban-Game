@@ -43,6 +43,19 @@ void AddGoal(Goals* goals, Goal* goal) {
     goals->count++;
 }
 
+void ClearGoals(Goals* goals) {
+    Goal* current = goals->first;
+    while (current != NULL) {
+        Goal* temp = current;
+        current = current->next;
+        DestroyGoal(temp);
+    }
+
+    goals->first = NULL;
+    goals->last = NULL;
+    goals->count = 0;
+}
+
 void DrawGoals(Goals* goals) {
     Goal* current = goals->first;
     while (current != NULL) {
