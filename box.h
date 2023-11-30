@@ -8,6 +8,7 @@ typedef struct box {
     float xStart;
     float yStart;
     Rectangle sprite;
+    Texture2D texture;
     struct box* next;
 } Box;
 

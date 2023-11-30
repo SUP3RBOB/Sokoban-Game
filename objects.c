@@ -68,14 +68,14 @@ bool LevelCompleted(Objects* objects) {
     return goalsCaptured >= objects->goals->count;
 }
 
-void LoadLevel(Objects* _objects, int _level) {
-    if (_level == 1) {
-        LevelOne(_objects);
+void LoadLevel(Objects* objects, int level) {
+    if (level == 1) {
+        LevelOne(objects);
         return;
     }
 
-    if (_level == 2) {
-        LevelTwo(_objects);
+    if (level == 2) {
+        LevelTwo(objects);
         return;
     }
 }
@@ -108,30 +108,41 @@ void LevelOne(Objects* objects) {
 }
 
 void LevelTwo(Objects* objects) {
-    SetPlayerPosition(objects->player, 320, 224);
-    SetPlayerStartPosition(objects->player, 320, 224);
+    SetPlayerPosition(objects->player, 416, 128);
+    SetPlayerStartPosition(objects->player, 416, 128);
 
-    AddBox(objects->boxes, CreateBox(192, 160));
-    AddBox(objects->boxes, CreateBox(352, 256));
-    AddBox(objects->boxes, CreateBox(224, 320));
+    AddBox(objects->boxes, CreateBox(320, 128));
+    AddBox(objects->boxes, CreateBox(224, 160));
+    AddBox(objects->boxes, CreateBox(320, 256));
+    AddBox(objects->boxes, CreateBox(384, 320));
+    AddBox(objects->boxes, CreateBox(352, 352));
 
-    AddGoal(objects->goals, CreateGoal(384, 160));
-    AddGoal(objects->goals, CreateGoal(384, 352));
-    AddGoal(objects->goals, CreateGoal(288, 320));
+    AddGoal(objects->goals, CreateGoal(448, 128));
+    AddGoal(objects->goals, CreateGoal(256, 160));
+    AddGoal(objects->goals, CreateGoal(192, 224));
+    AddGoal(objects->goals, CreateGoal(256, 288));
+    AddGoal(objects->goals, CreateGoal(384, 256));
 
-    AddWall(objects->walls, CreateWall(320, 384, 96, 32));
-    AddWall(objects->walls, CreateWall(160, 352, 160, 32));
-    AddWall(objects->walls, CreateWall(128, 288, 32, 64));
-    AddWall(objects->walls, CreateWall(384, 320, 32, 32));
-    AddWall(objects->walls, CreateWall(416, 160, 32, 224));
-    AddWall(objects->walls, CreateWall(224, 288, 128, 32));
-    AddWall(objects->walls, CreateWall(320, 256, 32, 32));
-    AddWall(objects->walls, CreateWall(384, 192, 32, 96));
-    AddWall(objects->walls, CreateWall(160, 128, 32, 160));
-    AddWall(objects->walls, CreateWall(256, 224, 32, 32));
-    AddWall(objects->walls, CreateWall(256, 128, 64, 96));
-    AddWall(objects->walls, CreateWall(192, 96, 64, 32));
-    AddWall(objects->walls, CreateWall(320, 128, 96, 32));
+    AddWall(objects->walls, CreateWall(320, 416, 64, 32));
+    AddWall(objects->walls, CreateWall(288, 384, 32, 32));
+    AddWall(objects->walls, CreateWall(384, 384, 32, 32));
+    AddWall(objects->walls, CreateWall(384, 352, 64, 32));
+    AddWall(objects->walls, CreateWall(256, 352, 32, 32));
+    AddWall(objects->walls, CreateWall(448, 288, 32, 64));
+    AddWall(objects->walls, CreateWall(224, 256, 32, 96));
+    AddWall(objects->walls, CreateWall(192, 256, 32, 32));
+    AddWall(objects->walls, CreateWall(288, 256, 32, 32));
+    AddWall(objects->walls, CreateWall(352, 256, 32, 32));
+    AddWall(objects->walls, CreateWall(416, 192, 32, 96));
+    AddWall(objects->walls, CreateWall(160, 192, 32, 64));
+    AddWall(objects->walls, CreateWall(256, 192, 64, 32));
+    AddWall(objects->walls, CreateWall(352, 160, 32, 64));
+    AddWall(objects->walls, CreateWall(416, 160, 64, 32));
+    AddWall(objects->walls, CreateWall(480, 128, 32, 32));
+    AddWall(objects->walls, CreateWall(224, 96, 32, 32));
+    AddWall(objects->walls, CreateWall(320, 96, 160, 32));
+    AddWall(objects->walls, CreateWall(256, 64, 160, 32));
+    AddWall(objects->walls, CreateWall(192, 128, 32, 64));
 }
 
 void DestroyLevel(Objects* objects) {

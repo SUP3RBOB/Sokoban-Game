@@ -16,6 +16,8 @@ Box* CreateBox(float x, float y) {
     r.width = 32;
     r.height = 32;
     box->sprite = r;
+
+    box->texture = LoadTexture("../Assets/crate.png");
     return box;
 }
 
@@ -25,7 +27,7 @@ bool PointOnBox(Boxes* boxes, float x, float y, Box** outBox) {
     while (current != NULL) {
         if (CheckCollisionPointRec(point, current->sprite)) {
             if (outBox != NULL) {
-                *outBox = current;
+                (*outBox) = current;
             }
             return true;
         }
@@ -48,10 +50,12 @@ void ResetBox(Box* box) {
 void DrawBox(Box* box) {
     box->sprite.x = box->x;
     box->sprite.y = box->y;
-    DrawRectangleRec(box->sprite, BLUE);
+    DrawTexture(box->texture, (int)box->x, (int)box->y, WHITE);
+    //DrawRectangleRec(box->sprite, BLUE);
 }
 
 void DestroyBox(Box* box) {
+    UnloadTexture(box->texture);
     free(box);
 }
 

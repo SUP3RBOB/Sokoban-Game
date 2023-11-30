@@ -1,6 +1,7 @@
 #pragma once
+#include "objects.h"
 
-void Start();
-void Update();
-void Draw();
-void End();
+void Start(Objects* objects);
+void Update(Objects* objects, int* level);
+void Draw(Objects* objects, int* level);
+void End(Objects* objects);

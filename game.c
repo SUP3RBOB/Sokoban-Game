@@ -1,13 +1,7 @@
 #include "game.h"
-#include <stdlib.h>
 #include <stdio.h>
-#include "objects.h"
 
-Objects* objects;
-int level = 1;
-
-void Start() {
-    objects = malloc(sizeof(Objects));
+void Start(Objects* objects) {
     objects->player = CreatePlayer(0, 0);
     objects->walls = CreateWallList();
     objects->boxes = CreateBoxList();
@@ -16,7 +10,7 @@ void Start() {
     LevelOne(objects);
 }
 
-void Update() {
+void Update(Objects* objects, int* level) {
     if (IsKeyPressed(KEY_RIGHT)) {
         MovePlayer(objects, 1, 0);
     }
@@ -38,17 +32,20 @@ void Update() {
     }
 
     if (LevelCompleted(objects)) {
-        level++;
+        (*level)++;
         DestroyLevel(objects);
-        LoadLevel(objects, level);
+        LoadLevel(objects, *level);
     }
 }
 
-void Draw() {
+void Draw(Objects* objects, int* level) {
     ClearBackground(BLACK);
     DrawObjects(objects);
+    char levelLabel[12];
+    sprintf(levelLabel, "Level %d", (*level));
+    DrawText(levelLabel, 4, 4, 30, WHITE);
 }
 
-void End() {
+void End(Objects* objects) {
     DestroyObjects(objects);
 }
