@@ -68,14 +68,14 @@ bool LevelCompleted(Objects* objects) {
     return goalsCaptured >= objects->goals->count;
 }
 
-void LoadLevel(Objects* objects, int level) {
-    if (level == 1) {
-        LevelOne(objects);
+void LoadLevel(Objects* _objects, int _level) {
+    if (_level == 1) {
+        LevelOne(_objects);
         return;
     }
 
-    if (level == 2) {
-        LevelTwo(objects);
+    if (_level == 2) {
+        LevelTwo(_objects);
         return;
     }
 }

@@ -17,7 +17,7 @@ Box* CreateBox(float x, float y) {
     r.height = 32;
     box->sprite = r;
 
-    box->texture = LoadTexture("../Assets/crate.png");
+    //box->texture = LoadTexture("../Assets/crate.png");
     return box;
 }
 
@@ -50,12 +50,12 @@ void ResetBox(Box* box) {
 void DrawBox(Box* box) {
     box->sprite.x = box->x;
     box->sprite.y = box->y;
-    DrawTexture(box->texture, (int)box->x, (int)box->y, WHITE);
-    //DrawRectangleRec(box->sprite, BLUE);
+    //DrawTexture(box->texture, (int)box->x, (int)box->y, WHITE);
+    DrawRectangleRec(box->sprite, BLUE);
 }
 
 void DestroyBox(Box* box) {
-    UnloadTexture(box->texture);
+    //UnloadTexture(box->texture);
     free(box);
 }
 
